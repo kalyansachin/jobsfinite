@@ -1,15 +1,20 @@
 import "./navigationBar.scss";
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import EventNoteIcon from '@mui/icons-material/EventNote';
+import MoodIcon from '@mui/icons-material/Mood';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
+import TwitterIcon from '@mui/icons-material/Twitter';
 
 function CustomNavigation(){
 
     return(
-        <div style={{color:"green"}}>
+        <div >
             <div id="wrapper">
   <ul>
     <li>
       <a href="#">
-        <i class="icon-list-alt">
-        </i>
+            <AssignmentIcon/>
         <div>
           Type
         </div>
@@ -17,8 +22,7 @@ function CustomNavigation(){
     </li>
     <li>
       <a href="#">
-        <i class="icon-calendar">
-        </i>
+        <EventNoteIcon/>
         <div>
           Basic Settings
         </div>
@@ -26,8 +30,7 @@ function CustomNavigation(){
     </li>
     <li>
       <a href="#">
-        <i class="icon-globe">
-        </i>
+        <MoodIcon/>
         <div>
           Geo
         </div>
@@ -35,8 +38,7 @@ function CustomNavigation(){
     </li>
     <li>
       <a href="#">
-        <i class="icon-bullseye">
-        </i>
+      <TipsAndUpdatesIcon/>
         <div>
           Target Groups
         </div>
@@ -44,8 +46,7 @@ function CustomNavigation(){
     </li>
     <li>
       <a href="#">
-        <i class="icon-picture">
-        </i>
+        <RocketLaunchIcon/>
         <div>
           Creatives
         </div>
@@ -53,8 +54,7 @@ function CustomNavigation(){
     </li>
     <li>
       <a href="#">
-        <i class="icon-list-alt">
-        </i>
+        <TwitterIcon/>
         <div>
           Summary
         </div>
