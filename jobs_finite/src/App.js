@@ -1,7 +1,7 @@
 import './App.css';
 import Header from "./header/header";
 import CustomNavigation from './navigationBar/navigationBar';
-import SwipeableTextMobileStepper from "./dummy";
+import SwipeableTextMobileStepper from "./carousal/carousal";
 
 function App() {
   return (
