@@ -5,6 +5,7 @@ import MoodIcon from '@mui/icons-material/Mood';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import TipsAndUpdatesIcon from '@mui/icons-material/TipsAndUpdates';
 import TwitterIcon from '@mui/icons-material/Twitter';
+// import { withRouter } from "react-router";
 
 function CustomNavigation(){
 
@@ -66,4 +67,4 @@ function CustomNavigation(){
     )
 }
 
-export default CustomNavigation;
+export default (CustomNavigation);

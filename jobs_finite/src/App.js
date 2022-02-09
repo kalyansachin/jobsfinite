@@ -2,6 +2,7 @@ import './App.css';
 import Header from "./header/header";
 import CustomNavigation from './navigationBar/navigationBar';
 import SwipeableTextMobileStepper from "./carousal/carousal";
+import HomePage from './homePage/homePage';
 
 function App() {
   return (
@@ -9,17 +10,16 @@ function App() {
     <div>
       <Header/>
     </div>
-    <div style={{position: "relative",
-            right:"0.1%",
-            left: "0.1%",}}>
+    <div style={{marginTop:"40px"
+            }}>
       <SwipeableTextMobileStepper/>
     </div>
-    <CustomNavigation/>
-    <div >
+    {/* <div >
      <h1>JOBS FINITE</h1>
      <h2>Hey Guys Welcome to jobs finite</h2>
      <h3>Work in progress</h3>
-    </div>
+    </div> */}
+    <HomePage/>
     </>
   );
 }

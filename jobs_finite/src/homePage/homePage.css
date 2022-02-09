@@ -1,0 +1,20 @@
+
+
+.zoom {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: 150px;
+}
+   
+.zoom img {
+    width: 100%;
+    transition: 0.5s all ease-in-out;
+}
+   
+.zoom:hover  {
+    transform: scale(1.25);
+    transition: 0.4s all ease-in-out;
+}
