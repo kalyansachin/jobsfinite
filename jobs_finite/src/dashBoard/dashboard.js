@@ -8,8 +8,8 @@ function DashBoard(){
     return (
         <>
         <div>
-      <Header/>
-    </div>
+          <Header/>
+        </div>
     <div style={{marginTop:"40px"
             }}>
       <SwipeableTextMobileStepper/>
