@@ -57,6 +57,7 @@
 @media screen and (max-width: 450px) {
     #homepage-main-outside{
         background-color: white;
+        margin-bottom: 40px;
     }
     #homepage-main{
         display: flex;
@@ -69,11 +70,19 @@
         width: 200px;
         height: 200px;
     }
-    #homepage-main .job-category{
+    #homepage-main .hovering-effect{
         text-align: center;
         margin-top: 10px;
         margin-bottom: 30px;
-        font-size: 20px;
+    }
+    #homepage-main .hovering-effect .job-category{
+        font-size: medium;
+    }
+    .zoom img {
+        width: 100%;
+        height: 89%;
+        object-fit: scale-down;
+        transition: 0.5s all ease-in-out;
     }
 
 }
