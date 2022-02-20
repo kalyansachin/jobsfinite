@@ -18,8 +18,9 @@
 }
 .hovering-effect{
     padding-bottom: 20px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 10px;
+    box-shadow: 3px 3px 10px 5px gray;
 }
    
 .hovering-effect:hover  {
