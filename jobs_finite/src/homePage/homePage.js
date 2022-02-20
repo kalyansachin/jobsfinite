@@ -11,20 +11,16 @@ function HomePage(){
     return (
         <div id="homepage-main-outside">
             <div id="homepage-main">
-                <div onClick={()=>history("/govtPortal")} >
+                <div className="hovering-effect" onClick={()=>history("/govtPortal")} >
                     <div className="zoom">
                         <img src={govtLogo} ></img>
-                    </div>
-                    <div className = "job-category" style={{color: "#CB1515"}}>
-                        <b>Government Jobs</b>
+                        <b className="job-category" style={{color: "#CB1515"}}>Government Jobs</b>
                     </div>
                 </div>
-                <div onClick={()=>history("/privatePortal")}>
+                <div className="hovering-effect" onClick={()=>history("/privatePortal")}>
                     <div className="zoom">
                         <img src={transparentPrivateLogo} ></img>
-                    </div>
-                    <div className = "job-category" style={{color: "royalblue"}}>
-                        <b>Private Jobs</b>
+                        <b className="job-category" style={{color: "royalblue"}}>Private Jobs</b>
                     </div>
                 </div>
             </div>
