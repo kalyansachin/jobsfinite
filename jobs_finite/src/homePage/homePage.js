@@ -1,7 +1,6 @@
 import govtLogo from "../images/govtIcon.png";
 import privateLogo from "../images/corporateIcon.png";
 import transparentPrivateLogo from "../images/transparentCorp.png";
-import navigationBar from "../navigationBar/navigationBar";
 import { useNavigate } from "react-router";
 import "./homePage.css";
 
@@ -9,22 +8,22 @@ function HomePage(){
 
     let history = useNavigate();
     return (
-        <div id="homepage-main-outside">
-            <div id="homepage-main">
-                <div className="hovering-effect" onClick={()=>history("/govtPortal")} >
-                    <div className="zoom">
-                        <img src={govtLogo} ></img>
-                        <b className="job-category" style={{color: "#CB1515"}}>Government Jobs</b>
+            <div id="homepage-main-outside">
+                <div id="homepage-main">
+                    <div className="hovering-effect" onClick={()=>history("/centralgovtPortal")} >
+                        <div className="zoom">
+                            <img src={govtLogo} ></img>
+                            <b className="job-category" style={{color: "#CB1515"}}>Government Jobs</b>
+                        </div>
                     </div>
-                </div>
-                <div className="hovering-effect" onClick={()=>history("/privatePortal")}>
-                    <div className="zoom">
-                        <img src={transparentPrivateLogo} ></img>
-                        <b className="job-category" style={{color: "royalblue"}}>Private Jobs</b>
+                    <div className="hovering-effect" onClick={()=>history("/privatePortal")}>
+                        <div className="zoom">
+                            <img src={transparentPrivateLogo} ></img>
+                            <b className="job-category" style={{color: "royalblue"}}>Private Jobs</b>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     )
 }
 

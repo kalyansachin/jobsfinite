@@ -1,6 +1,8 @@
 import DashBoard from "./dashBoard/dashboard";
 import { BrowserRouter as Router,Routes, useNavigate,Route } from "react-router-dom";
-import NavigationBar from "./navigationBar/navigationBar";
+import CentralGovernment from "./governmentportal/central";
+import Corporate from "./corporateportal/corporate";
+import StateGovernment from "./governmentportal/state";
 
 function App() {
 
@@ -10,8 +12,9 @@ function App() {
      <Router>
        <Routes>
          <Route exact path="/" element={<DashBoard/>}></Route>
-         <Route path="/govtPortal" element={<NavigationBar/>}></Route>
-         <Route path="/privatePortal" element={<NavigationBar/>}></Route>
+         <Route path="/centralgovtPortal" element={<CentralGovernment/>}></Route>
+         <Route path="/stategovtportal" element={<StateGovernment/>}></Route>
+         <Route path="/privatePortal" element={<Corporate/>}></Route>
          </Routes>
      </Router> 
     
