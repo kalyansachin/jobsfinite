@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../header/header';
 import "./government.css";
+import axios from 'axios'
 
 const CentralGovernment = () => {
+    // const [data, setData] = useState([]);
 
     // const addRow = (stateName) => {
     //     let table = document.getElementById(stateName);
@@ -30,8 +32,10 @@ const CentralGovernment = () => {
     //     }
     // } 
 
+
     return (
         <div>
+            
             <Header/>
             <h2 style={{textAlign: "center"}}>Central Government Jobs</h2>
             <div id="govtpage-main-outside">
@@ -118,7 +122,7 @@ const CentralGovernment = () => {
                     </tr>
                     <tr>
                         <td>Post Date</td>
-                        <td>Recruitment Board</td>
+                        <td>Recruitment Board dss grgtrh htkrjehitrj oijfgiohfoi  ijgoi fhd pog fogi fdios gp</td>
                         <td>Post Name</td>
                         <td>Qualification</td>
                         <td>Advt No</td>

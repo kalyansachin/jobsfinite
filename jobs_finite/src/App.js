@@ -3,8 +3,11 @@ import { BrowserRouter as Router,Routes, useNavigate,Route } from "react-router-
 import CentralGovernment from "./governmentportal/central";
 import Corporate from "./corporateportal/corporate";
 import StateGovernment from "./governmentportal/state";
+import { useEffect } from 'react';
+import { axios } from "axios";
 
 function App() {
+
 
   // let history  = useNavigate();
   return (

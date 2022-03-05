@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import axios from 'axios';
 import Header from '../header/header';
 import "./government.css";
 
@@ -29,6 +30,15 @@ const StateGovernment = () => {
     //         lastCell.disabled = true;
     //     }
     // } 
+    useEffect(() => {
+        fetchData();
+    }, [])
+    
+    const fetchData = () => {
+        axios.get("https://jsonplaceholder.typicode.com/users")
+            .then( res => console.log(res))
+            .catch( err => console.log(err))
+    }
 
     return (
         <div>
