@@ -1,44 +1,11 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import Header from '../header/header';
 import "./government.css";
 
 const StateGovernment = () => {
 
-    // const addRow = (stateName) => {
-    //     let table = document.getElementById(stateName);
-    //     let row = table.insertRow(1);
-    //     for(let i = 0; i < 7; i++)
-    //     {
-    //         let cell = row.insertCell(i);
-    //         cell.innerHTML = '<input type="text">'
-    //     }
-    // }
 
-
-    // const removeRow = (stateName) => {
-    //     document.getElementById(stateName).deleteRow(-1);
-    // }
-
-    // const removeEdit = (stateName) => {
-    //     let table = document.getElementById(stateName);
-    //     let lastRow = table.rows[table.rows.length-1];
-    //     let lastCell = lastRow.cells[lastRow.cells.length-1];
-    //     for(let i = 0; i < lastRow.cells.length; i++)
-    //     {
-    //         let lastCell = lastRow.cells[i];
-    //         lastCell.disabled = true;
-    //     }
-    // } 
-    useEffect(() => {
-        fetchData();
-    }, [])
-    
-    const fetchData = () => {
-        axios.get("https://jsonplaceholder.typicode.com/users")
-            .then( res => console.log(res))
-            .catch( err => console.log(err))
-    }
 
     return (
         <div>

@@ -1,134 +1,171 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../header/header';
 import "./government.css";
+import data from './datajobs.json';
 import axios from 'axios'
 
-const CentralGovernment = () => {
-    // const [data, setData] = useState([]);
+const CentralGovernment = () => { 
+    const [data, setData] = useState([]);
 
-    // const addRow = (stateName) => {
-    //     let table = document.getElementById(stateName);
-    //     let row = table.insertRow(1);
-    //     for(let i = 0; i < 7; i++)
-    //     {
-    //         let cell = row.insertCell(i);
-    //         cell.innerHTML = '<input type="text">'
-    //     }
-    // }
-
-
-    // const removeRow = (stateName) => {
-    //     document.getElementById(stateName).deleteRow(-1);
-    // }
-
-    // const removeEdit = (stateName) => {
-    //     let table = document.getElementById(stateName);
-    //     let lastRow = table.rows[table.rows.length-1];
-    //     let lastCell = lastRow.cells[lastRow.cells.length-1];
-    //     for(let i = 0; i < lastRow.cells.length; i++)
-    //     {
-    //         let lastCell = lastRow.cells[i];
-    //         lastCell.disabled = true;
-    //     }
-    // } 
+    useEffect(() => {
+        console.log("Heelo")
+        
+        fetchData();
+        // appendData();   
+    }, []) 
+    
+     const fetchData = () =>  {
+        axios.get("http://localhost:8090/findGovtExamByName/SBI/")
+            .then(res => {
+                setData([...res.data])
+                console.log(res.data) 
+            })
+            .then(() => {
+                console.log("reload")
+                for(let i = 0; i < data.length; i++)
+                {
+                    console.log(data[i].postName)
+                    if(data[i].postName === "UPSC")
+                    {
+                        document.getElementById("upsc-body").innerHTML += 
+                        `<tr>
+                            <td>${data[i].examDate}</td>
+                            <td>${data[i].recruitmentBoard}</td>
+                            <td>${data[i].postName}</td>
+                            <td>${data[i].qualification}</td>
+                            <td>${data[i].advtNumber}</td>
+                            <td>${data[i].lastDate}</td>
+                            <td><a href="${data[i].url}">Get Details</a></td>
+                        </tr> `
+                    }
+                    if(data[i].postName === "BANK") 
+                    {
+                        document.getElementById("bank-body").innerHTML += 
+                        `<tr>
+                            <td>${data[i].examDate}</td>
+                            <td>${data[i].recruitmentBoard}</td>
+                            <td>${data[i].postName}</td>
+                            <td>${data[i].qualification}</td>
+                            <td>${data[i].advtNumber}</td>
+                            <td>${data[i].lastDate}</td>
+                            <td><a href="${data[i].url}">Get Details</a></td>
+                        </tr> `
+                    }
+                    if(data[i].postName === "SSC")
+                    {
+                        document.getElementById("ssc-body").innerHTML += 
+                        `<tr>
+                            <td>${data[i].examDate}</td>
+                            <td>${data[i].recruitmentBoard}</td>
+                            <td>${data[i].postName}</td>
+                            <td>${data[i].qualification}</td>
+                            <td>${data[i].advtNumber}</td>
+                            <td>${data[i].lastDate}</td>
+                            <td><a href="${data[i].url}">Get Details</a></td>
+                        </tr> ` 
+                    }
+                    if(data[i].postName === "RAIL" && data[i].recruitmentBoard === "Central Govt") 
+                    {
+                        document.getElementById("rail-body").innerHTML += 
+                        `<tr>
+                            <td>${data[i].examDate}</td>
+                            <td>${data[i].recruitmentBoard}</td>
+                            <td>${data[i].postName}</td>
+                            <td>${data[i].qualification}</td>
+                            <td>${data[i].advtNumber}</td>
+                            <td>${data[i].lastDate}</td>
+                            <td><a href="${data[i].url}">Get Details</a></td>
+                        </tr> `
+                    }
+        
+                }
+            })
+            .catch(err => console.log(err));
+     }
+    //  const appendData = () => {
+    //     console.log('Appending')
+    //  }
 
 
     return (
         <div>
-            
             <Header/>
             <h2 style={{textAlign: "center"}}>Central Government Jobs</h2>
             <div id="govtpage-main-outside">
                 <div id="govtpage-main">
                     <div className='state'>UPSC</div>
-                    <table className='table' id='andaman'>
-                    <tr>
-                        <th>Post Date</th>
-                        <th>Recruitment Board</th>
-                        <th>Post Name</th>
-                        <th>Qualification</th>
-                        <th>Advt No</th>
-                        <th>Last Date</th>
-                        <th>More Information</th>
-                    </tr>
-                    <tr>
-                        <td>Post Date</td>
-                        <td>Recruitment Board</td>
-                        <td>Post Name</td>
-                        <td>Qualification</td>
-                        <td>Advt No</td>
-                        <td>Last Date</td>
-                        <td>More Information</td>
-                    </tr>
+                    <table className='table' id='upsc-table'>
+                        <thead>
+                            <tr>
+                                <th>Post Date</th>
+                                <th>Recruitment Board</th> 
+                                <th>Post Name</th>
+                                <th>Qualification</th>
+                                <th>Advt No</th>
+                                <th>Last Date</th>
+                                <th>More Information</th>
+                            </tr>
+                        </thead>
+                        <tbody id='upsc-body'>
+
+                        </tbody>
                     </table>
                 </div>
                 <div id="govtpage-main">
                 <div className='state'>Banking</div>
-                    <table className='table'>
-                    <tr>
-                        <th>Post Date</th>
-                        <th>Recruitment Board</th>
-                        <th>Post Name</th>
-                        <th>Qualification</th>
-                        <th>Advt No</th>
-                        <th>Last Date</th>
-                        <th>More Information</th>
-                    </tr>
-                    <tr>
-                        <td>Post Date</td>
-                        <td>Recruitment Board</td>
-                        <td>Post Name</td>
-                        <td>Qualification</td>
-                        <td>Advt No</td>
-                        <td>Last Date</td>
-                        <td>More Information</td>
-                    </tr>
+                    <table className='table' id='bank-table'>
+                        <thead>
+                            <tr>
+                                <th>Post Date</th>
+                                <th>Recruitment Board</th>
+                                <th>Post Name</th>
+                                <th>Qualification</th>
+                                <th>Advt No</th>
+                                <th>Last Date</th>
+                                <th>More Information</th>
+                            </tr>
+                        </thead>
+                        <tbody id='bank-body'>
+
+                        </tbody>
                     </table>
                 </div>
                 <div id="govtpage-main">
                 <div className='state'>Railways</div>
-                    <table className='table'>
-                    <tr>
-                        <th>Post Date</th>
-                        <th>Recruitment Board</th>
-                        <th>Post Name</th>
-                        <th>Qualification</th>
-                        <th>Advt No</th>
-                        <th>Last Date</th>
-                        <th>More Information</th>
-                    </tr>
-                    <tr>
-                        <td>Post Date</td>
-                        <td>Recruitment Board</td>
-                        <td>Post Name</td>
-                        <td>Qualification</td>
-                        <td>Advt No</td>
-                        <td>Last Date</td>
-                        <td>More Information</td>
-                    </tr>
+                    <table className='table' id='rail-table'>
+                        <thead>
+                            <tr>
+                                <th>Post Date</th>
+                                <th>Recruitment Board</th>
+                                <th>Post Name</th>
+                                <th>Qualification</th>
+                                <th>Advt No</th>
+                                <th>Last Date</th>
+                                <th>More Information</th>
+                            </tr>
+                        </thead>
+                        <tbody id='rail-body'>
+
+                        </tbody>
                     </table>
                 </div>
                 <div id="govtpage-main">
                 <div className='state'>Staff Selection Committee</div>
-                    <table className='table'>
-                    <tr>
-                        <th>Post Date</th>
-                        <th>Recruitment Board</th>
-                        <th>Post Name</th>
-                        <th>Qualification</th>
-                        <th>Advt No</th>
-                        <th>Last Date</th>
-                        <th>More Information</th>
-                    </tr>
-                    <tr>
-                        <td>Post Date</td>
-                        <td>Recruitment Board dss grgtrh htkrjehitrj oijfgiohfoi  ijgoi fhd pog fogi fdios gp</td>
-                        <td>Post Name</td>
-                        <td>Qualification</td>
-                        <td>Advt No</td>
-                        <td>Last Date</td>
-                        <td>More Information</td>
-                    </tr>
+                    <table className='table' id='ssc-table'>
+                        <thead>
+                            <tr>
+                                <th>Post Date</th>
+                                <th>Recruitment Board</th>
+                                <th>Post Name</th>
+                                <th>Qualification</th>
+                                <th>Advt No</th>
+                                <th>Last Date</th>
+                                <th>More Information</th>
+                            </tr>
+                        </thead>
+                        <tbody id='ssc-body'>
+
+                        </tbody>
                     </table>
                 </div>
             </div>
