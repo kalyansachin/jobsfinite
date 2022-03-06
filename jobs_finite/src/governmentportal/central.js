@@ -14,6 +14,7 @@ const CentralGovernment = () => {
         // appendData();   
     }, []) 
     
+
      const fetchData = () =>  {
         axios.get("http://localhost:8090/findGovtExamByName/SBI/")
             .then(res => {
@@ -90,6 +91,8 @@ const CentralGovernment = () => {
     return (
         <div>
             <Header/>
+
+
             <h2 style={{textAlign: "center"}}>Central Government Jobs</h2>
             <div id="govtpage-main-outside">
                 <div id="govtpage-main">
@@ -165,6 +168,37 @@ const CentralGovernment = () => {
                         </thead>
                         <tbody id='ssc-body'>
 
+                        </tbody>
+                    </table>
+                </div>
+                <div id="govtpage-main">
+                <div className='state'>Dummy</div>
+                    <table className='table' id='ssc-table'>
+                        <thead>
+                            <tr>
+                                <th>Post Date</th>
+                                {/* <th>Recruitment Board</th> */}
+                                <th>Post Name</th>
+                                {/* <th>Qualification</th> */}
+                                <th>Advt No</th>
+                                <th>Last Date</th>
+                                <th>More Information</th>
+                            </tr>
+                        </thead>
+                        <tbody id='ssc-body'>
+                            {data && data.map((item)=>{
+                                return(
+                                    <tr>
+                                    <td>{item.examDate}</td>
+                                    {/* <td>{item.recruitmentBoard}</td> */}
+                                    <td>{item.postName}</td>
+                                    {/* <td>{item.qualification}</td> */}
+                                    <td>{item.advtNumber}</td>
+                                    <td>{item.lastDate}</td>
+                                    <td><a href={item.url} target={'_blank'}>Get Details</a></td>
+                                </tr>
+                                )
+                            })}
                         </tbody>
                     </table>
                 </div>
