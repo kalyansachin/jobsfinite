@@ -2,11 +2,9 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import Header from '../header/header';
 import "./government.css";
+import Footer from '../footer/footer';
 
 const StateGovernment = () => {
-
-
-
     return (
         <div>
             <Header/>
@@ -17,19 +15,15 @@ const StateGovernment = () => {
                     <table className='table' id='andaman'>
                     <tr>
                         <th>Post Date</th>
-                        <th>Recruitment Board</th>
                         <th>Post Name</th>
                         <th>Qualification</th>
-                        <th>Advt No</th>
                         <th>Last Date</th>
                         <th>More Information</th>
                     </tr>
                     <tr>
                         <td>Post Date</td>
-                        <td>Recruitment Board</td>
                         <td>Post Name</td>
                         <td>Qualification</td>
-                        <td>Advt No</td>
                         <td>Last Date</td>
                         <td>More Information</td>
                     </tr>
@@ -39,20 +33,16 @@ const StateGovernment = () => {
                 <div className='state'>Andhra Pradesh</div>
                     <table className='table'>
                     <tr>
-                        <th>Post Date</th>
-                        <th>Recruitment Board</th>
+                    <th>Post Date</th>
                         <th>Post Name</th>
                         <th>Qualification</th>
-                        <th>Advt No</th>
                         <th>Last Date</th>
                         <th>More Information</th>
                     </tr>
                     <tr>
-                        <td>Post Date</td>
-                        <td>Recruitment Board</td>
+                    <td>Post Date</td>
                         <td>Post Name</td>
                         <td>Qualification</td>
-                        <td>Advt No</td>
                         <td>Last Date</td>
                         <td>More Information</td>
                     </tr>
@@ -62,20 +52,16 @@ const StateGovernment = () => {
                 <div className='state'>Arunchal Pradesh</div>
                     <table className='table'>
                     <tr>
-                        <th>Post Date</th>
-                        <th>Recruitment Board</th>
+                    <th>Post Date</th>
                         <th>Post Name</th>
                         <th>Qualification</th>
-                        <th>Advt No</th>
                         <th>Last Date</th>
                         <th>More Information</th>
                     </tr>
                     <tr>
-                        <td>Post Date</td>
-                        <td>Recruitment Board</td>
+                    <td>Post Date</td>
                         <td>Post Name</td>
                         <td>Qualification</td>
-                        <td>Advt No</td>
                         <td>Last Date</td>
                         <td>More Information</td>
                     </tr>
@@ -85,20 +71,16 @@ const StateGovernment = () => {
                 <div className='state'>Assam</div>
                     <table className='table'>
                     <tr>
-                        <th>Post Date</th>
-                        <th>Recruitment Board</th>
+                    <th>Post Date</th>
                         <th>Post Name</th>
                         <th>Qualification</th>
-                        <th>Advt No</th>
                         <th>Last Date</th>
                         <th>More Information</th>
                     </tr>
                     <tr>
-                        <td>Post Date</td>
-                        <td>Recruitment Board</td>
+                    <td>Post Date</td>
                         <td>Post Name</td>
                         <td>Qualification</td>
-                        <td>Advt No</td>
                         <td>Last Date</td>
                         <td>More Information</td>
                     </tr>
@@ -108,26 +90,23 @@ const StateGovernment = () => {
                 <div className='state'>Bihar</div>
                     <table className='table'>
                         <tr>
-                            <th>Post Date</th>
-                            <th>Recruitment Board</th>
-                            <th>Post Name</th>
-                            <th>Qualification</th>
-                            <th>Advt No</th>
-                            <th>Last Date</th>
-                            <th>More Information</th>
+                        <th>Post Date</th>
+                        <th>Post Name</th>
+                        <th>Qualification</th>
+                        <th>Last Date</th>
+                        <th>More Information</th>
                         </tr>
                         <tr>
-                            <td>Post Date</td>
-                            <td>Recruitment Board</td>
-                            <td>Post Name</td>
-                            <td>Qualification</td>
-                            <td>Advt No</td>
-                            <td>Last Date</td>
-                            <td>More Information</td>
+                        <td>Post Date</td>
+                        <td>Post Name</td>
+                        <td>Qualification</td>
+                        <td>Last Date</td>
+                        <td>More Information</td>
                         </tr>
                     </table>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 };

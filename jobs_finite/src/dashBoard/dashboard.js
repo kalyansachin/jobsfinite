@@ -1,6 +1,7 @@
 import Header from "../header/header";
 import SwipeableTextMobileStepper from "../carousal/carousal";
 import HomePage from '../homePage/homePage';
+import Footer from "../footer/footer";
 
 function DashBoard(){
 
@@ -13,6 +14,7 @@ function DashBoard(){
           <SwipeableTextMobileStepper/>
         </div>
         <HomePage/>
+        <Footer />
         </>
     )
 }

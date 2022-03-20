@@ -6,22 +6,35 @@
     justify-content: space-between;
     align-items: center;
 }
+#header-main > #float-right{
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    gap: 15px;
+    align-items: center;
+}
+#header-main > #float-left{
+    float: left;
+}
+#float-right-mobile{
+    display: none;
+}
 
 #main-logo{
-    margin-left: 20px;
+    margin-left: 10px;
     height: 30px;
     width: 200px;
     object-fit: scale-down;
 }
 #header-text{
-    margin-right: 10%;
+    margin-right: 1%;
     display: flex;
     flex-direction: row;
     /* flex-wrap: wrap; */
 }
 #header-text input{
-    margin-right: 20px;
-    height: 17px;
+    margin-right: 15px;
+    height: 30px;
+    /* width: 60px; */
     border-radius: 3px;
 }
 #header-text #header-text-button{
@@ -37,17 +50,18 @@
     background-color: white;
     color: black;
 }
-#header-main span{
+/* #header-main span{
+
+} */
+#marquee-top{
+    margin-top: 1%;
+    display: block;
     color: red;
     font-weight: bold;
 }
-#marquee-top{
-    margin-top: 1%;
-    display: none;
-}
-#inner-marquee{
+/* #inner-marquee{
     display: block;
-}
+} */
 #navbar-main{
     margin-top: 20px;
     height: 30px;
@@ -59,6 +73,11 @@
     justify-content: space-around;
     align-items: center;
     /* overflow: hidden; */
+}
+#multi-select{
+    width: 25%;
+    /* padding: 3px; */
+
 }
 #navbar-main a{
     /* height: 100%; */
@@ -73,6 +92,13 @@
     background-color: white;
     color: black;
     transition: 0.6s ease;
+}
+#multi-select{
+    display: inline-block;
+    width: auto;
+}
+#mulit-select-mobile{
+    display: none;
 }
 
 /* }
@@ -184,6 +210,12 @@
         margin-left: 10px;
         border-radius: 5px;
     }
+    #header-main #float-right #mulit-select{
+        display: none;
+    }
+    #header-main #float-right{
+        display: inline-block;
+    }
     #header-main #header-text button{
         float: right;
         border-radius: 5px;
@@ -199,6 +231,14 @@
     }
     #navbar-main .main{
         padding: 5.5px;
+    }
+    #multi-select{
+        /* visibility: hidden; */
+        display: none;
+    }
+    #float-right-mobile{
+        margin-top: 20px;
+        display: block;
     }
   }
   @media screen and (max-width: 280px) {
