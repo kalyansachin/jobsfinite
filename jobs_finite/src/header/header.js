@@ -158,7 +158,7 @@ function Header() {
             </div> */}
             <div id="navbar-main">
                 <a href="/" className="hide main">Home</a>
-                <a href="javascript: document.body.scrollIntoView(false);" className="hide">Contact us</a>
+                <a href="" className="hide">Contact us</a>
                 <a href="/centralgovtPortal" className="govt-btn hide link">Central Government Jobs</a>
                 <a href="/stategovtPortal">State Government Jobs</a>
                 <a href="/privatePortal" className="hide">Private Jobs</a>

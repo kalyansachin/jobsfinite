@@ -12,48 +12,22 @@ import axios from 'axios'
 import Footer from '../footer/footer';
 
 const CentralGovernment = () => { 
-    const [bankData, setbankData] = useState([]);
-    const [upscData, setupscData] = useState([]);
-    const [sscData, setsscData] = useState([]);
-    const [railData, setrailData] = useState([]);
-    // const [job, setJob] = useState({state: 'Karnataka'});
+    const [data, setData] = useState([]);
+    const [job, setJob] = useState({state: 'Karnataka'});
 
     useEffect(() => {
-        console.log("Helo")
-        fetchbankData();
-        fetchupscData();
-        fetchrailData();
-        fetchsscData();
-    }, []) 
-    const navigate = useNavigate();
-    
+        fetchData();
+    }, [])
 
-     const fetchbankData = () =>  {
-        document.getElementById('bank-body').innerHTML = '';
-        axios.get("http://localhost:8090/findGovtExamByName/SBI/")
+    const navigate = useNavigate();
+    const fetchData = () => {
+        // document.getElementById('bank-body').innerHTML = '';
+        axios.get("https://jobs-finite.herokuapp.com/getAllCentralGovtPost")
             .then(res => {
-                setbankData([...res.data])
-            })
+                setData([...res.data])
+            }) 
             .catch(err => console.log(err));
-     }
-     const fetchupscData = () => {
-        document.getElementById('upsc-body').innerHTML = '';
-        axios.get("http://localhost:8090/findGovtExamByName/UPSC/")
-            .then(res => setupscData([...res.data]))
-            .catch(err => console.log(err));
-     }
-     const fetchsscData = () => {
-        document.getElementById('ssc-body').innerHTML = '';
-        axios.get("http://localhost:8090/findGovtExamByName/SSC/")
-            .then(res => setsscData([...res.data]))
-            .catch(err => console.log(err));
-     }
-     const fetchrailData = () => {
-        document.getElementById('rail-body').innerHTML = '';
-        axios.get("http://localhost:8090/findGovtExamByName/Rail/")
-            .then(res => setrailData([...res.data]))
-            .catch(err => console.log(err));
-     }
+    }
     return (
         <div>
             <Header/>
@@ -68,22 +42,20 @@ const CentralGovernment = () => {
                         <thead>
                             <tr>
                                 <th>Post Date</th>
-                                {/* <th>Recruitment Board</th>  */}
                                 <th>Post Name</th>
                                 <th>Qualification</th>
-                                {/* <th>Advt No</th> */}
                                 <th>Last Date</th>
                                 <th>More Information</th>
                             </tr>
                         </thead>
                         <tbody id='upsc-body'>
-                            {upscData && upscData.map((item) => {
+                            {data && data.filter(index => index.examName === "UPSC" && index.jobType ==="central").map((item,ind) => {
                                 return (
-                                    <tr>
-                                        <td>{item.examDate}</td>
-                                        <td>{item.postName}</td>
+                                    <tr key={ind}>
+                                        <td>{item.postDateString}</td>
+                                        <td>{item.examName}</td>
                                         <td>{item.qualification}</td>
-                                        <td>{item.lastDate}</td>
+                                        <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
                                             navigate("/centralgovtPortal/job", {state: item});
                                         }}>Next</a>
@@ -109,13 +81,13 @@ const CentralGovernment = () => {
                             </tr>
                         </thead>
                         <tbody id='bank-body'>
-                            {bankData && bankData.map((item) => {
+                        {data && data.filter(index => index.examName === "SBI" && index.jobType ==="central").map((item,ind) => {
                                 return (
-                                    <tr>
-                                        <td>{item.examDate}</td>
-                                        <td>{item.postName}</td>
+                                    <tr key={ind}>
+                                        <td>{item.postDateString}</td>
+                                        <td>{item.examName}</td>
                                         <td>{item.qualification}</td>
-                                        <td>{item.lastDate}</td>
+                                        <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
                                             navigate("/centralgovtPortal/job", {state: item});
                                         }}>Next</a>
@@ -141,13 +113,13 @@ const CentralGovernment = () => {
                             </tr>
                         </thead>
                         <tbody id='rail-body'>
-                            {railData && railData.map((item) => {
+                        {data && data.filter(index => index.examName === "RAIL" && index.jobType ==="central").map((item,ind) => {
                                 return (
-                                    <tr>
-                                        <td>{item.examDate}</td>
-                                        <td>{item.postName}</td>
+                                    <tr key={ind}>
+                                        <td>{item.postDateString}</td>
+                                        <td>{item.examName}</td>
                                         <td>{item.qualification}</td>
-                                        <td>{item.lastDate}</td>
+                                        <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
                                             navigate("/centralgovtPortal/job", {state: item});
                                         }}>Next</a>
@@ -173,20 +145,21 @@ const CentralGovernment = () => {
                             </tr>
                         </thead>
                         <tbody id='ssc-body'>
-                            {sscData && sscData.map((item) => {
+                        {data && data.filter(index => index.examName === "SSC" && index.jobType ==="central").map((item,ind) => {
                                 return (
-                                    <tr>
-                                        <td>{item.examDate}</td>
-                                        <td>{item.postName}</td>
+                                    <tr key={ind}>  
+                                        <td>{item.postDateString}</td>
+                                        <td>{item.examName}</td>
                                         <td>{item.qualification}</td>
-                                        <td>{item.lastDate}</td>
+                                        <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
                                             navigate("/centralgovtPortal/job", {state: item});
                                         }}>Next</a>
                                         </td>
                                     </tr>
                                 )
-                            })}
+                            }
+                                )}
                         </tbody>
                     </table>
                 </div>

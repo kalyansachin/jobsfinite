@@ -1,13 +1,11 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom'
+import { UNSAFE_LocationContext, useLocation } from 'react-router-dom'
 import { useParams } from 'react-router';
 import Header from '../header/header';
 import "./DynamicJob/job.css";
 import Footer from '../footer/footer';
 
 const Job = (props) => {
-    // const params = useParams()
-    const description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat bibendum ipsum nec maximus. Sed eros ligula, dapibus at vestibulum euismod, luctus non mi. Donec tincidunt diam vel neque cursus, sed venenatis urna posuere. Suspendisse quis diam vel dolor tempor ornare sed sit amet eros. Duis arcu mi, varius ut eros vel, feugiat interdum turpis. Curabitur a purus id libero cursus cursus. Etiam facilisis augue vitae turpis sollicitudin, eget tempor turpis lobortis. In sapien risus, accumsan at ullamcorper non, ornare sit amet leo. Vestibulum nec urna at leo laoreet cursus eget nec tortor. Suspendisse vitae ligula consequat, elementum sapien quis, consequat arcu. Suspendisse vel tristique sem, sed consectetur ipsum. Donec ac mollis odio. Pellentesque magna tortor, consequat at dapibus et, dictum eu purus. Fusce iaculis tortor at tempor consequat. Sed bibendum sodales nisi a dignissim. Fusce ac odio vitae quam accumsan semper."
 
     const location = useLocation();
     React.useEffect(() => {
@@ -24,15 +22,15 @@ const Job = (props) => {
                             <div>{location.state.postName} Recuritment 2022 - Apply Online for Combined Higher Secondary Level (10 + 2) Exam</div>
                         </div>
                         <div className='inner-job-content'>
-                            <div><span className="side-heading">Post Name: </span> {location.state.postName}</div>
+                            <div><span className="side-heading">Post Name: </span> {location.state.examName}</div>
                         </div>
                         <hr className='solid'/>
                         <div className='inner-job-content'>
-                            <div><span className="side-heading">Exam Date: </span> {location.state.examName}</div>
+                            <div><span className="side-heading">Exam Date: </span> {location.state.postDateString}</div>
                         </div>
                         <hr className='solid'/>
                         <div className='inner-job-content'>
-                            <div><span className="side-heading">Last Date to apply: </span> {location.state.lastDate}</div>
+                            <div><span className="side-heading">Last Date to apply: </span> {location.state.postLastDateString}</div>
                         </div>
                         <hr className='solid'/>
                         <div className='inner-job-content'>
@@ -40,15 +38,15 @@ const Job = (props) => {
                         </div>
                         <hr className='solid'/>
                         <div className='inner-job-content'>
-                            <div><span className="side-heading">Job description: </span> {description}</div>
+                            <div><span className="side-heading">Job description: </span> {location.state.jobDescription}</div>
                         </div>
                         <hr className='solid'/>
                         <div className='inner-job-content remove-padding'>
                             <div><span className='middle-heading' style={{color: "red", fontWeight: "bold", display: "flex", justifyContent: "center"}}>Application Fees</span></div>
                             <div>
                                 <ul>
-                                    <li style={{ marginBottom: "5px",}}>For General Category :    <span style={{fontWeight: "bold"}}>   Rs.1000/-</span></li>
-                                    <li style={{ marginBottom: "5px"}}>For SC/ST/PWD :    <span style={{fontWeight: "bold"}}>   Rs.250/-</span></li>
+                                    <li style={{ marginBottom: "5px",}}>For General Category :    <span style={{fontWeight: "bold"}}>   Rs.{location.state.generalFee}/-</span></li>
+                                    <li style={{ marginBottom: "5px"}}>For SC/ST/PWD :    <span style={{fontWeight: "bold"}}>   Rs.{location.state.scFee}/-</span></li>
                                     <li style={{ marginBottom: "5px"}}>Payment Mode:    <span style={{fontWeight: "bold"}}>   Debit / Internet Banking</span></li>
                                 </ul>
                             </div>
@@ -58,23 +56,23 @@ const Job = (props) => {
                             <div><span className='middle-heading' style={{color: "red", fontWeight: "bold", display: "flex", justifyContent: "center"}}>Important Dates</span></div>
                             <div>
                                 <ul>
-                                    <li style={{ marginBottom: "5px",}}>Starting Date to Apply :<span style={{fontWeight: "bold"}}>   01-02-2022</span></li>
-                                    <li style={{ marginBottom: "5px"}}>Last Date to Apply :<span style={{fontWeight: "bold"}}>   07-03-2022 23:00 Hrs</span></li>
-                                    <li style={{ marginBottom: "5px"}}>Last Date for Payment of Fee through Online :<span style={{fontWeight: "bold"}}>08-03-2022 by 23:00 Hrs</span></li>
-                                    <li style={{ marginBottom: "5px"}}>Last Date for Generation of office Challan :<span style={{fontWeight: "bold"}}>09-03-2022 by 23:00 Hrs</span></li>
-                                    <li style={{ marginBottom: "5px"}}>Last Date for Correction of Application Form :<span style={{fontWeight: "bold"}}>08-03-2022 by 23:00 Hrs</span></li>
-                                    <li style={{ marginBottom: "5px"}}>Date of Computer Based Examination(Tier - 1) :<span style={{fontWeight: "bold"}}>May 2022</span></li>
-                                    <li style={{ marginBottom: "5px"}}>Date of Tier II Exam :<span style={{fontWeight: "bold"}}>To be notified later</span></li>
+                                    <li style={{ marginBottom: "5px",}}>Starting Date to Apply :<span style={{fontWeight: "bold"}}>   {location.state.postDateString}</span></li>
+                                    <li style={{ marginBottom: "5px"}}>Last Date to Apply :<span style={{fontWeight: "bold"}}>   {location.state.postLastDateString}</span></li>
+                                    <li style={{ marginBottom: "5px"}}>Last Date for Payment of Fee through Online :<span style={{fontWeight: "bold"}}>{location.state.lastDayForChallanString} by 23:00 Hrs</span></li>
+                                    <li style={{ marginBottom: "5px"}}>Last Date for Generation of office Challan :<span style={{fontWeight: "bold"}}>02/03/2021 by 23:00 Hrs</span></li>
+                                    <li style={{ marginBottom: "5px"}}>Last Date for Correction of Application Form :<span style={{fontWeight: "bold"}}>{location.state.lastDayForCorrectionString} by 23:00 Hrs</span></li>
+                                    {/* <li style={{ marginBottom: "5px"}}>Date of Computer Based Examination(Tier - 1) :<span style={{fontWeight: "bold"}}>May 2022</span></li>
+                                    <li style={{ marginBottom: "5px"}}>Date of Tier II Exam :<span style={{fontWeight: "bold"}}>To be notified later</span></li> */}
                                 </ul>
                             </div>
                         </div>
                         <hr className='solid'/>
                         <div className='inner-job-content remove-padding'>
-                            <div><span className='middle-heading' style={{color: "red", fontWeight: "bold", display: "flex", justifyContent: "center"}}>Age Limit(as on 01-01-2021)</span></div>
+                            <div><span className='middle-heading' style={{color: "red", fontWeight: "bold", display: "flex", justifyContent: "center"}}>Age Limit</span></div>
                             <div>
                                 <ul>
-                                    <li style={{ marginBottom: "5px",}}>Minimum Age :    <span style={{fontWeight: "bold"}}>   18 Years</span></li>
-                                    <li style={{ marginBottom: "5px"}}>Maximum Age :    <span style={{fontWeight: "bold"}}>   27 Years</span></li>
+                                    <li style={{ marginBottom: "5px",}}>Minimum Age :    <span style={{fontWeight: "bold"}}>   {location.state.minimumAge}</span></li>
+                                    <li style={{ marginBottom: "5px"}}>Maximum Age :    <span style={{fontWeight: "bold"}}>   {location.state.maximumAge}</span></li>
                                     <li style={{ marginBottom: "5px"}}><span style={{fontWeight: "bold"}}>Age relaxation is applicable as per rules</span></li>
                                 </ul>
                             </div>
@@ -84,7 +82,7 @@ const Job = (props) => {
                             <div><span className='middle-heading' style={{color: "red", fontWeight: "bold", display: "flex", justifyContent: "center"}}>Educational Qualifications</span></div>
                             <div>
                                 <ul>
-                                    <li style={{ marginBottom: "5px",}}><span style={{fontWeight: "bold"}}>Candidates must have passed 12th class/ equivalent exam from a recognized Board/ University</span></li>
+                                    <li style={{ marginBottom: "5px",}}><span style={{fontWeight: "bold"}}>Candidates must have passed {location.state.qualification} from a recognized Board/ University</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -104,17 +102,17 @@ const Job = (props) => {
                                         <tr>
                                             <td>1</td>
                                             <td>General</td>
-                                            <td>86</td>
+                                            <td>{location.state.generalVacancy}</td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
                                             <td>SC</td>
-                                            <td>08</td>
+                                            <td>{location.state.scVacancy}</td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
                                             <td>ST</td>
-                                            <td>29</td>
+                                            <td>{location.state.stVacancy}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -134,7 +132,7 @@ const Job = (props) => {
                         </div>
                         <hr className='solid'/>
                         <div className='inner-job-content' style={{display: "flex", paddingTop: "0px", paddingBottom: "15px"}}>
-                            <div style={{paddingLeft: "30%",flexBasis: "50%", float: "right"}}>Official Website: </div><div style={{flexBasis: "50%"}}><a href='https://www.google.com/' style={{fontWeight: "bold"}}>Click Here!</a></div>
+                            <div style={{paddingLeft: "30%",flexBasis: "50%", float: "right"}}>Official Website: </div><div style={{flexBasis: "50%"}}><a href={location.state.officialUrl} style={{fontWeight: "bold"}}>Click Here!</a></div>
                         </div>
                     </div>
                 </div>
