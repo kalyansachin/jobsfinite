@@ -135,12 +135,14 @@ function Header() {
 
                 // If they select any state then this if will be executed
                 if(selectArray[0] !== "All" || selectArray[0] !== "UPSC" || selectArray[0] !== "Bank" || selectArray[0] !== "Railways" || selectArray[0] !== "SSC") {
-                    const emailData = {
+                    // const emailData = {
+                    //     emailId: mail,
+                    //     state: selectArray[0]
+                    // }
+                    axios.post("https://jobs-finite.herokuapp.com/saveStateGovtSubscriber", {
                         emailId: mail,
                         state: selectArray[0]
-                    }
-                    axios.post("https://jobs-finite.herokuapp.com/saveStateGovtSubscriber", {emailData})
-                        .then((res) => {
+                    }).then((res) => {
                             setOpenMsg(res.data);
                             handleClick();
                         })
