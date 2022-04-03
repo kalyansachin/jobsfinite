@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from 'react'
 import logo from "../images/logo.png";
 import "./Header.css";
@@ -58,6 +58,27 @@ function Header() {
     const Alert = React.forwardRef(function Alert(props, ref) {
       return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
     });
+
+    useEffect(() => {
+        if(window.location.pathname === "/"){
+            document.getElementById("home-id").style.background = "white";
+            document.getElementById("home-id").style.color = "black";
+            document.getElementById("header-text").style.display = "none"
+        }
+        if(window.location.pathname === "/centralgovtPortal" || window.location.pathname === "/centralgovtPortal/job"){
+            document.getElementById("central-id").style.background = "white";
+            document.getElementById("central-id").style.color = "black"
+        }
+        if(window.location.pathname === "/stategovtPortal" || window.location.pathname === "/stategovtportal/job"){
+            document.getElementById("state-id").style.background = "white";
+            document.getElementById("state-id").style.color = "black"
+        }
+        if(window.location.pathname === "/privatePortal" || window.location.pathname === "/privatePortal/job"){
+            document.getElementById("private-id").style.background = "white";
+            document.getElementById("private-id").style.color = "black"
+        }
+
+    })
 
     const handleClick = () => {
         setOpen(true);
@@ -159,7 +180,7 @@ function Header() {
 
     const storeCategories = (e) => {
         // console.log(selected[selected.length-1])
-        console.log(e)
+        // console.log(e)
 
         const updatedCategories = e
         if(updatedCategories.length > 1) {
@@ -262,11 +283,11 @@ function Header() {
                     {window.location.pathname === "/stategovtPortal" ? <Select  isMulti placeholder="Select categories" options={stateData} /> : null}
             </div> */}
             <div id="navbar-main">
-                <a href="/" className="hide main">Home</a>
-                <a href="" className="hide">Contact us</a>
-                <a href="/centralgovtPortal" className="govt-btn hide link">Central Government Jobs</a>
-                <a href="/stategovtPortal">State Government Jobs</a>
-                <a href="/privatePortal" className="hide">Private Jobs</a>
+                <a href="/" className="hide main" id="home-id">Home</a>
+                <a href="" className="hide" id="contact-id">Contact us</a>
+                <a href="/centralgovtPortal" className="govt-btn hide link" id="central-id">Central Government Jobs</a>
+                <a href="/stategovtPortal" id="state-id">State Government Jobs</a>
+                <a href="/privatePortal" className="hide" id="private-id">Private Jobs</a>
             </div>
         </div>
     )

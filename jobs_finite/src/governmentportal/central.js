@@ -58,7 +58,7 @@ const CentralGovernment = () => {
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
                                             navigate("/centralgovtPortal/job", {state: item});
-                                        }}>Next</a>
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -90,7 +90,7 @@ const CentralGovernment = () => {
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
                                             navigate("/centralgovtPortal/job", {state: item});
-                                        }}>Next</a>
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -122,7 +122,7 @@ const CentralGovernment = () => {
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
                                             navigate("/centralgovtPortal/job", {state: item});
-                                        }}>Next</a>
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -154,7 +154,7 @@ const CentralGovernment = () => {
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
                                             navigate("/centralgovtPortal/job", {state: item});
-                                        }}>Next</a>
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )

@@ -49,8 +49,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -79,8 +79,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -109,8 +109,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -139,8 +139,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -169,8 +169,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -199,8 +199,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -229,8 +229,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -259,8 +259,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -289,8 +289,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -319,8 +319,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -349,8 +349,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -379,8 +379,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -409,8 +409,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -439,8 +439,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -469,8 +469,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -499,8 +499,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -529,8 +529,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -559,8 +559,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -589,8 +589,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -619,8 +619,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -649,8 +649,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -679,8 +679,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -709,8 +709,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -739,8 +739,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -769,8 +769,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -799,8 +799,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -829,8 +829,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -859,8 +859,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )
@@ -889,8 +889,8 @@ const StateGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", { state: item });
-                                        }}>Next</a>
+                                            navigate("/stategovtportal/job", { state: item });
+                                        }}>Get Details</a>
                                         </td>
                                     </tr>
                                 )

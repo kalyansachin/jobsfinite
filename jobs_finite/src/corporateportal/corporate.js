@@ -69,18 +69,18 @@ const Corporate = () => {
                                     <tr>
                                         <th>Company Name</th>
                                         <th>Post Name</th>
-                                        <th>Qualification</th>
+                                        <th>Experience</th>
                                         <th>Last Date</th>
                                         <th>More Information</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                {data && data.filter((index) => index.fresher === false).map((item,ind) => {
+                                {data && data.filter((index) => index.fresher === false).sort((a, b) => a.experience - b.experience).map((item,ind) => {
                                 return (
                                 <tr key={ind}>
                                     <td>{item.companyName}</td>
                                     <td>{item.examName}</td>
-                                    <td>{item.qualification}</td>
+                                    <td>{item.experience}</td>
                                     <td>{item.postLastDateString}</td>
                                     <td><a href='' onClick={() => {
                                             navigate("/privatePortal/job", {state: item});

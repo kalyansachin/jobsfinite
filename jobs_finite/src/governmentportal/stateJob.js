@@ -5,7 +5,7 @@ import Header from '../header/header';
 import "./DynamicJob/job.css";
 import Footer from '../footer/footer';
 
-const Job = (props) => {
+const StateJob = (props) => {
 
     const location = useLocation();
     React.useEffect(() => {
@@ -26,7 +26,7 @@ const Job = (props) => {
                         </div>
                         <hr className='solid'/>
                         <div className='inner-job-content'>
-                            <div><span className="side-heading">Exam Date: </span> {location.state.postDateString}</div>
+                            <div><span className="side-heading">Exam Date: </span> {location.state.postDate}</div>
                         </div>
                         <hr className='solid'/>
                         <div className='inner-job-content'>
@@ -142,4 +142,4 @@ const Job = (props) => {
     );
 };
 
-export default Job;
+export default StateJob;
