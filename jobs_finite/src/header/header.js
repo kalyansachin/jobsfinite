@@ -1,10 +1,14 @@
 import { useState } from "react";
+import React from 'react'
 import logo from "../images/logo.png";
 import "./Header.css";
 import Marquee from 'react-fast-marquee';
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 import Select from "react-select";
+import axios from 'axios'
+import MuiAlert from "@mui/material/Alert";
 import { Outlet, Link } from "react-router-dom";
+import Snackbar from "@mui/material/Snackbar";
 
 
 
@@ -14,6 +18,11 @@ function Header() {
     const [boo, setBool] = useState(true);
     const [categories, setCategories] = useState([]);
     const [focus, setFocus] = useState(false);
+    const [selectArray, changeSelectArray] = useState([])
+    const [open, setOpen] = useState(false);
+    const [openMsg, setOpenMsg] = useState("");
+    const [fail, setFail] = useState(false);
+    const [failMsg, setFailMsg] = useState("");
     const centralData = [
         {
             value: 1,
@@ -30,6 +39,10 @@ function Header() {
         {
             value: 4,
             label: "SSC"
+        },
+        {
+            value: 5,
+            label: "All"
         }
     ];
     const stateData = [
@@ -41,8 +54,27 @@ function Header() {
         { value: 22, label: "Sikkim" }, { value: 23, label: "Tamil Nadu" }, { value: 24, label: "Telangana" }, { value: 25, label: "Tripura" },
         { value: 26, label: "Uttar Pradesh" }, { value: 27, label: "Uttarakhand" }, { value: 28, label: "West Bengal" }
     ]
-    const selectArray = [];
+    const selectArrayModified = [];
 
+    const Alert = React.forwardRef(function Alert(props, ref) {
+      return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+    });
+
+    const handleClick = () => {
+        setOpen(true);
+      };
+      const handleFail = () => {
+        setFail(true);
+      };
+
+      const handleClose = (event, reason) => {
+        setOpen(false);
+        setFail(false);
+        setOpenMsg("");
+        setFailMsg("");
+        console.log(failMsg)
+        console.log(openMsg)
+      };
     const showAlert = () => {
         const val = document.getElementById('type-email').value;
         // var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -50,26 +82,77 @@ function Header() {
         var validRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 
         if (val === "" || !validRegex.test(val)) {
-            alert("Enter valid email address");
+            // alert("Enter valid email address");
+            setFailMsg("Enter Valid Email Address");
+            handleFail();
         } else {
             let mail = document.getElementById("type-email").value;
             let name = mail.substring(0, mail.lastIndexOf("@"));
-            // console.log('selected categories', selectArray);
-            let str = "";
+            
+            // If they enter mail in private portal page and click on subscribe this if will be executed
+            if(window.location.pathname === "/privatePortal"){
+                axios.post("https://jobs-finite.herokuapp.com/savePrivateJobSubscriber",{email: mail})
+                    .then((res) => {
+                        setOpenMsg(res.data);
+                        handleClick();
+                    })
+                        .catch((e) => {
+                            // console.log(mail)
+                            setFailMsg(e.response.data.errorDescription);
+                            handleFail();
+                        })
+                return;
+            }
+            
+            // We need to remove the email entering option in unnecessary pages
+            // if(window.location.pathname !== "/privatePortal" || window.location.pathname !== "/centralgovtPortal" || window.location.pathname !== "/stategovtportal") {
+            //     document.getElementById("header-text").Style.display = "none"
+            // }
+            // else {
+            //     document.getElementById("header-text").Style.display = "block"
+            // }
+
+
+            // If they haven't selected any category this if has to be executed
             if (selectArray.length === 0) {
-                alert("Please select the categories you need to get notified");
+                // alert("Please select the categories you need to get notified");
+                setFailMsg("Please select the categories you need to get notified");
+                handleFail();
                 // document.getElementById('select-tag').autofocus = true;
             }
             else {
-                for (let i = 0; i < selectArray.length; i++) {
-                    if (i == 0) {
-                        str = str + selectArray[i];
-                    }
-                    else {
-                        str = str + "," + selectArray[i];
-                    }
+                
+                // If they select all option in central page and it is incomplete need to confirm!
+                if(selectArray[0] === "All") {
+                    axios.post("https://jobs-finite.herokuapp.com/saveCentralGovtSubscriber",{email: mail})
+                        .then((res) => {
+                            setOpenMsg(res.data);
+                            handleClick();
+                        })
+                        .catch((e) => {
+                            setFailMsg(e.response.data.errorDescription);
+                            handleFail();
+                        })
+                    return;
                 }
-                alert("Thank you for subscribing " + name + ". You will get job alerts to your mail now on " + str + ".")
+
+                // If they select any state then this if will be executed
+                if(selectArray[0] !== "All" || selectArray[0] !== "UPSC" || selectArray[0] !== "Bank" || selectArray[0] !== "Railways" || selectArray[0] !== "SSC") {
+                    const emailData = {
+                        email: mail,
+                        state: selectArray[0]
+                    }
+                    axios.post("https://jobs-finite.herokuapp.com/saveStateGovtSubscriber", {emailData})
+                        .then((res) => {
+                            setOpenMsg(res.data);
+                            handleClick();
+                        })
+                        .catch((e) => {
+                            // console.log(selectArray[0]);
+                            setFailMsg(e.response.data.errorDescription);
+                            handleFail();
+                        })
+                }
             }
         }
 
@@ -80,10 +163,17 @@ function Header() {
         console.log(e)
 
         const updatedCategories = e
+        if(updatedCategories.length > 1) {
+            // alert("Please select only one category");
+            setFailMsg("Please select only one category");
+            handleFail();
+            e.preventDefault();
+        }
 
         for (let i = 0; i < updatedCategories.length; i++) {
-            selectArray[i] = updatedCategories[i].label;
+            selectArrayModified[i] = updatedCategories[i].label;
         }
+        changeSelectArray([...selectArrayModified])
 
     }
 
@@ -98,6 +188,22 @@ function Header() {
                     <div id="float-left">
                         <img src={logo} id="main-logo"></img>
                     </div>
+                     <Snackbar
+                        open={open}
+                        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                        autoHideDuration={2000}
+                        onClose={handleClose}
+                      >
+                        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
+                          {openMsg}
+                        </Alert>
+                      </Snackbar>
+                      <Snackbar open={fail} anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                       autoHideDuration={2000} onClose={handleClose}>
+                        <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+                          {failMsg}
+                        </Alert>
+                      </Snackbar>
                     <div id="float-right">
                         <div id="multi-select">{window.location.pathname === "/centralgovtPortal" ?
                             <Select isMulti id="select-tag" placeholder="Select categories" options={centralData} onChange={storeCategories}
