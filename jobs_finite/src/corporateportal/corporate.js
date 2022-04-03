@@ -34,6 +34,7 @@ const Corporate = () => {
             <h2 style={{textAlign: "center"}}>Private Jobs</h2>
             <div id="govtpage-main-outside">
                         <div id="govtpage-main">
+                        <div className='state'>For Freshers</div>
                             <table className='table'>
                                 <thead>
                                     <tr>
@@ -45,7 +46,36 @@ const Corporate = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                {data && data.map((item,ind) => {
+                                {data && data.filter((index) => index.fresher === true).map((item,ind) => {
+                                return (
+                                <tr key={ind}>
+                                    <td>{item.companyName}</td>
+                                    <td>{item.examName}</td>
+                                    <td>{item.qualification}</td>
+                                    <td>{item.postLastDateString}</td>
+                                    <td><a href='' onClick={() => {
+                                            navigate("/privatePortal/job", {state: item});
+                                        }}>Next</a>
+                                        </td>
+                                </tr>
+                                )})}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="govtpage-main">
+                        <div className='state'>For Experienced</div>
+                            <table className='table'>
+                                <thead>
+                                    <tr>
+                                        <th>Company Name</th>
+                                        <th>Post Name</th>
+                                        <th>Qualification</th>
+                                        <th>Last Date</th>
+                                        <th>More Information</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {data && data.filter((index) => index.fresher === false).map((item,ind) => {
                                 return (
                                 <tr key={ind}>
                                     <td>{item.companyName}</td>

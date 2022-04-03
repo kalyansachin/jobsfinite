@@ -18,7 +18,7 @@ const OnlyJob = (props) => {
 	                <div id="onlyjobpage-main">
                 		<div className="job-content">
                 			<div className="inner-job-content" style={{backgroundColor: "silver", fontSize: "30px"}}>
-                				<div style={{textAlign: "center"}}>{location.state.companyName} - {location.state.exp}Freshers</div>
+                				<div style={{textAlign: "center"}}>{location.state.companyName} - {location.state.fresher ? "Freshers" : "Experienced"}</div>
                 			</div>
 	                        <div className='inner-job-content'>
 	                            <div><span className="side-heading">Post Name: </span> {location.state.examName}</div>
@@ -37,11 +37,15 @@ const OnlyJob = (props) => {
 	                        </div>
 	                        <hr className='solid'/>
 	                        <div className='inner-job-content'>
+	                            <div><span className="side-heading">Experience Required: </span>{location.state.experience} {location.state.experience > 1 ? "Years" : "Year"}</div>
+	                        </div>
+	                        <hr className='solid'/>
+	                        <div className='inner-job-content'>
 	                            <div><span className="side-heading">Job description: </span> {location.state.jobDescription}</div>
 	                        </div>
 	                        <hr className='solid'/>
 	                        <div className='inner-job-content'>
-	                            <div><span className="side-heading">Percentage required: </span> {location.state.percent} with no backlogs</div>
+	                            <div><span className="side-heading">Percentage required: </span> {location.state.minPercentage}% with no backlogs</div>
 	                        </div>
 	                        <hr className='solid'/>
 	                        <div className='inner-job-content'>
@@ -49,7 +53,7 @@ const OnlyJob = (props) => {
 	                        </div>
 	                        <hr className='solid'/>
 	                        <div className='inner-job-content'>
-	                            <div><span className="side-heading">Year of Passing: </span> {location.state.year}</div>
+	                            <div><span className="side-heading">Year of Passing: </span> {location.state.yearOfPassing}</div>
 	                        </div>
 	                        <hr className='solid'/>
 	                        <div className='inner-job-content'>

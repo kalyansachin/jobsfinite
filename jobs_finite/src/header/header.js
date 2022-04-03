@@ -12,7 +12,6 @@ import Snackbar from "@mui/material/Snackbar";
 
 
 
-
 function Header() {
 
     const [boo, setBool] = useState(true);
@@ -72,8 +71,6 @@ function Header() {
         setFail(false);
         setOpenMsg("");
         setFailMsg("");
-        console.log(failMsg)
-        console.log(openMsg)
       };
     const showAlert = () => {
         const val = document.getElementById('type-email').value;
@@ -90,8 +87,8 @@ function Header() {
             let name = mail.substring(0, mail.lastIndexOf("@"));
             
             // If they enter mail in private portal page and click on subscribe this if will be executed
-            if(window.location.pathname === "/privatePortal"){
-                axios.post("https://jobs-finite.herokuapp.com/savePrivateJobSubscriber",{email: mail})
+            if(window.location.pathname === "/privatePortal" || window.location.pathname === "/privatePortal/job"){
+                axios.post("https://jobs-finite.herokuapp.com/savePrivateJobSubscriber",{emailId: mail})
                     .then((res) => {
                         setOpenMsg(res.data);
                         handleClick();
@@ -123,8 +120,8 @@ function Header() {
             else {
                 
                 // If they select all option in central page and it is incomplete need to confirm!
-                if(selectArray[0] === "All") {
-                    axios.post("https://jobs-finite.herokuapp.com/saveCentralGovtSubscriber",{email: mail})
+                if(selectArray[0] === "All" || selectArray[0] === "UPSC" || selectArray[0] === "Bank" || selectArray[0] === "Railways" || selectArray[0] === "SSC") {
+                    axios.post("https://jobs-finite.herokuapp.com/saveCentralGovtSubscriber",{emailId: mail})
                         .then((res) => {
                             setOpenMsg(res.data);
                             handleClick();
@@ -139,7 +136,7 @@ function Header() {
                 // If they select any state then this if will be executed
                 if(selectArray[0] !== "All" || selectArray[0] !== "UPSC" || selectArray[0] !== "Bank" || selectArray[0] !== "Railways" || selectArray[0] !== "SSC") {
                     const emailData = {
-                        email: mail,
+                        emailId: mail,
                         state: selectArray[0]
                     }
                     axios.post("https://jobs-finite.herokuapp.com/saveStateGovtSubscriber", {emailData})

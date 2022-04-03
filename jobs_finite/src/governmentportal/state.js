@@ -7,7 +7,7 @@ import Footer from '../footer/footer';
 
 const StateGovernment = () => {
     const [data, setData] = useState([]);
-    const [job, setJob] = useState({ state: 'Karnataka' });
+    // const [job, setJob] = useState({ state: 'Karnataka' });
 
     useEffect(() => {
         fetchData();
