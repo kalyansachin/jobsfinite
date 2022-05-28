@@ -63,17 +63,19 @@ function Header() {
         if(window.location.pathname === "/"){
             document.getElementById("home-id").style.background = "white";
             document.getElementById("home-id").style.color = "black";
-            document.getElementById("header-text").style.display = "none"
+            // document.getElementById("header-text").style.display = "none"
         }
-        if(window.location.pathname === "/centralgovtPortal" || window.location.pathname === "/centralgovtPortal/job"){
+        if(window.location.pathname === "/centralgovtPortal" || window.location.pathname === "/centralgovtPortal"){
             document.getElementById("central-id").style.background = "white";
             document.getElementById("central-id").style.color = "black"
+            // document.getElementById("multi-select").style.display = "none";
         }
-        if(window.location.pathname === "/stategovtPortal" || window.location.pathname === "/stategovtportal/job"){
-            document.getElementById("state-id").style.background = "white";
-            document.getElementById("state-id").style.color = "black"
+        if(window.location.pathname === "/stategovtPortal" || window.location.pathname === "/stategovtportal"){
+            document.getElementById("central-id").style.background = "white";
+            document.getElementById("central-id").style.color = "black"
+            // document.getElementById("multi-select").style.display = "none";
         }
-        if(window.location.pathname === "/privatePortal" || window.location.pathname === "/privatePortal/job"){
+        if(window.location.pathname === "/privatePortal" || window.location.pathname === "/privatePortal"){
             document.getElementById("private-id").style.background = "white";
             document.getElementById("private-id").style.color = "black"
         }
@@ -108,7 +110,7 @@ function Header() {
             let name = mail.substring(0, mail.lastIndexOf("@"));
             
             // If they enter mail in private portal page and click on subscribe this if will be executed
-            if(window.location.pathname === "/privatePortal" || window.location.pathname === "/privatePortal/job"){
+            if(window.location.pathname === "/privatePortal" || window.location.pathname === "/privatePortal/:id"){
                 axios.post("https://jobs-finite.herokuapp.com/savePrivateJobSubscriber",{emailId: mail})
                     .then((res) => {
                         setOpenMsg(res.data);
@@ -132,7 +134,17 @@ function Header() {
 
 
             // If they haven't selected any category this if has to be executed
-            if (selectArray.length === 0) {
+            if(window.location.pathname === "/" || window.location.pathname === "/governmentportal"){
+                axios.post("https://jobs-finite.herokuapp.com/saveSubscriber", {emailId: mail})
+                    .then((res) => {
+                        setOpenMsg(res.data);
+                        handleClick();
+                    }).catch((e) => {
+                        setFailMsg(e.response.data.errorDescription);
+                        handleFail();
+                    })
+            }
+            else if (selectArray.length === 0 && window.location.pathname !== "/") {
                 // alert("Please select the categories you need to get notified");
                 setFailMsg("Please select the categories you need to get notified");
                 handleFail();
@@ -201,29 +213,32 @@ function Header() {
     return (
         <div>
             <div>
-                <div id="marquee-top">
-                    <Marquee speed={100} pauseOnHover={true}><span>Get latest notifications and job alerts to your mail by subscribing below entering your mail.</span></Marquee>
-                </div>
+                
                 <div id="header-main">
                     <div id="float-left">
                         <img src={logo} id="main-logo"></img>
                     </div>
+
                      <Snackbar
                         open={open}
                         anchorOrigin={{ vertical: "top", horizontal: "center" }}
                         autoHideDuration={2000}
                         onClose={handleClose}
                       >
+
                         <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
                           {openMsg}
                         </Alert>
+
                       </Snackbar>
+
                       <Snackbar open={fail} anchorOrigin={{ vertical: "top", horizontal: "center" }}
                        autoHideDuration={2000} onClose={handleClose}>
                         <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
                           {failMsg}
                         </Alert>
                       </Snackbar>
+
                     <div id="float-right">
                         <div id="multi-select">{window.location.pathname === "/centralgovtPortal" ?
                             <Select isMulti id="select-tag" placeholder="Select categories" options={centralData} onChange={storeCategories}
@@ -236,7 +251,7 @@ function Header() {
                                         primary25: 'gray',
                                     },
                                 })} /> : null}
-                            {window.location.pathname === "/stategovtPortal" ? <Select
+                            {window.location.pathname === "/stategovtportal" ? <Select
                                 theme={(theme) => ({
                                     ...theme,
                                     borderRadius: 0,
@@ -249,7 +264,7 @@ function Header() {
                         </div>
                         <div id="header-text">
                             <input type="email" id="type-email" placeholder="Enter your email address" />
-                            <button id="header-text-button" onClick={showAlert}>Subscribe</button>
+                            <button id="header-text-button" onClick={showAlert}>SUBSCRIBE</button>
                         </div>
                     </div>
                 </div>
@@ -265,7 +280,7 @@ function Header() {
                                         primary25: 'gray',
                                     },
                                 })} /> : null}
-                            {window.location.pathname === "/stategovtPortal" ? <Select
+                            {window.location.pathname === "/stategovtportal" ? <Select
                                 theme={(theme) => ({
                                     ...theme,
                                     borderRadius: 0,
@@ -277,17 +292,19 @@ function Header() {
                                 } isMulti placeholder="Select categories" options={stateData} onChange={storeCategories} /> : null}
                         </div>
                     </div>
+                    <div id="marquee-top">
+                    <Marquee speed={100} pauseOnHover={true}><span>Get latest notifications and job alerts to your mail by subscribing below entering your mail.</span></Marquee>
+                </div>
             </div>
             {/* <div id="multi-select-mobile">{window.location.pathname === "/centralgovtPortal" ? 
                     <Select  isMulti placeholder="Select categories" options={centralData} /> : null}
                     {window.location.pathname === "/stategovtPortal" ? <Select  isMulti placeholder="Select categories" options={stateData} /> : null}
             </div> */}
+
             <div id="navbar-main">
                 <a href="/" className="hide main" id="home-id">Home</a>
-                <a href="" className="hide" id="contact-id">Contact us</a>
-                <a href="/centralgovtPortal" className="govt-btn hide link" id="central-id">Central Government Jobs</a>
-                <a href="/stategovtPortal" id="state-id">State Government Jobs</a>
-                <a href="/privatePortal" className="hide" id="private-id">Private Jobs</a>
+                <a href="/governmentportal" className="govt-btn hide link" id="central-id">Government Jobs</a>
+                <a href="/privatePortal" className="hide" id="private-id">IT Jobs</a>
             </div>
         </div>
     )

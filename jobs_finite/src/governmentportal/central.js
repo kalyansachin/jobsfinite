@@ -21,7 +21,7 @@ const CentralGovernment = () => {
 
     const navigate = useNavigate();
     const fetchData = () => {
-        // document.getElementById('bank-body').innerHTML = '';
+        document.getElementById('bank-body').innerHTML = '';
         axios.get("https://jobs-finite.herokuapp.com/getAllCentralGovtPost")
             .then(res => {
                 setData([...res.data])
@@ -34,7 +34,7 @@ const CentralGovernment = () => {
             <div>
             </div>
 
-            <h2 style={{textAlign: "center"}}>Central Government Jobs</h2>
+            <h2 style={{textAlign: "center", color: "#d3212d"}}>Central Government Jobs</h2>
             <div id="govtpage-main-outside">
                 <div id="govtpage-main">
                     <div className='state'>UPSC</div>
@@ -57,7 +57,7 @@ const CentralGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", {state: item});
+                                            navigate(`/centralgovtPortal/${item.id}`, {state: item});
                                         }}>Get Details</a>
                                         </td>
                                     </tr>
@@ -66,7 +66,7 @@ const CentralGovernment = () => {
                         </tbody>
                     </table>
                 </div>
-                <div id="govtpage-main">
+                <div id="govtpage-main" className="gap">
                 <div className='state'>Banking</div>
                     <table className='table' id='bank-table'>
                         <thead>
@@ -89,7 +89,7 @@ const CentralGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", {state: item});
+                                            navigate(`/centralgovtPortal/${item.id}`, {state: item});
                                         }}>Get Details</a>
                                         </td>
                                     </tr>
@@ -99,7 +99,7 @@ const CentralGovernment = () => {
                     </table>
                 </div>
                 <div id="govtpage-main">
-                <div className='state'>Railways</div>
+                <div className='state gap-below'>Railways</div>
                     <table className='table' id='rail-table'>
                         <thead>
                             <tr>
@@ -121,7 +121,7 @@ const CentralGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", {state: item});
+                                            navigate(`/centralgovtPortal/${item.id}`, {state: item});
                                         }}>Get Details</a>
                                         </td>
                                     </tr>
@@ -153,7 +153,7 @@ const CentralGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", {state: item});
+                                            navigate(`/centralgovtPortal/${item.id}`, {state: item});
                                         }}>Get Details</a>
                                         </td>
                                     </tr>

@@ -31,9 +31,9 @@ const Corporate = () => {
     return (
         <div>
             <Header />
-            <h2 style={{textAlign: "center"}}>Private Jobs</h2>
+            <h2 style={{textAlign: "center", color: "#d3212d"}}>IT Jobs</h2>
             <div id="govtpage-main-outside">
-                        <div id="govtpage-main">
+                        <div id="govtpage-main" className="gap">
                         <div className='state'>For Freshers</div>
                             <table className='table'>
                                 <thead>
@@ -54,7 +54,7 @@ const Corporate = () => {
                                     <td>{item.qualification}</td>
                                     <td>{item.postLastDateString}</td>
                                     <td><a href='' onClick={() => {
-                                            navigate("/privatePortal/job", {state: item});
+                                            navigate(`/privatePortal/${item.id}`, {state: item});
                                         }}>Next</a>
                                         </td>
                                 </tr>
@@ -62,7 +62,7 @@ const Corporate = () => {
                                 </tbody>
                             </table>
                         </div>
-                        <div id="govtpage-main">
+                        <div id="govtpage-main" style={{paddingTop: "20px"}}>
                         <div className='state'>For Experienced</div>
                             <table className='table'>
                                 <thead>
@@ -83,7 +83,7 @@ const Corporate = () => {
                                     <td>{item.experience}</td>
                                     <td>{item.postLastDateString}</td>
                                     <td><a href='' onClick={() => {
-                                            navigate("/privatePortal/job", {state: item});
+                                            navigate(`/privatePortal/${item.id}`, {state: item});
                                         }}>Next</a>
                                         </td>
                                 </tr>

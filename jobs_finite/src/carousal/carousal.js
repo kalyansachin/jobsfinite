@@ -11,6 +11,10 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import nature from '../carousal/nature.jpg'
+import plant from '../carousal/plant.jpg'
+import boat from '../carousal/boat.jpg'
+import mountain from '../carousal/mountain.jpg'
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -18,22 +22,22 @@ const images = [
   {
     label: 'San Francisco – Oakland Bay Bridge, United States',
     imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+      nature,
   },
   {
     label: 'Bird',
     imgPath:
-      'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+      plant,
   },
   {
     label: 'Bali, Indonesia',
     imgPath:
-      'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
+      boat,
   },
   {
     label: 'Goč, Serbia',
     imgPath:
-      'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
+      mountain,
   },
 ];
 
@@ -67,7 +71,8 @@ function SwipeableTextMobileStepper() {
           bgcolor: 'background.default',
         }}
       >
-        <Typography>{images[activeStep].label}</Typography>
+        <div style={{textAlign: "center"}}>
+        <Typography>{images[activeStep].label}</Typography></div>
       </Paper>
       <AutoPlaySwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
@@ -81,10 +86,12 @@ function SwipeableTextMobileStepper() {
               <Box
                 component="img"
                 sx={{
-                  height: 255,
+                  height: 300,
                   display: 'block',
-                  maxWidth: "100%",
+                  maxWidth: "80%",
                   overflow: 'hidden',
+                  margin: 'auto',
+                  backgroundColor: 'gray',
                   width: '100%',
                 }}
                 src={step.imgPath}
