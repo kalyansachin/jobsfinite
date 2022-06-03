@@ -16,6 +16,7 @@ const Excel = () => {
 
 		if(e.target && e.target.files[0]){
 			formData.append('file',e.target.files[0]);
+			
 		}
 	}
 
@@ -26,12 +27,14 @@ const Excel = () => {
 
 
 	const uploadFile = () => {
-		console.log(formData,select)
-		axios.post("https://jobs-finite.herokuapp.com/excelUpload",{file: formData, fileType: select})
+		formData.append("fileType",select);
+		// console.log("format data to be sent",formData,select)
+		axios.post("https://jobs-finite.herokuapp.com/excelUpload",formData)
 			.then((res) => console.log(res))
 			.catch((err) => console.log(err))
 	}
 
+	
 	return (
 		<div>
 			<div className="header-admin"> Hello Admin, Upload the excel file</div>
