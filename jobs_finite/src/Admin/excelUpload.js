@@ -1,4 +1,3 @@
-
 import { useState } from "react"
 import axios from 'axios'
 import './admin.css'
@@ -8,14 +7,21 @@ const type = [{name: "govt"},{name: "private"}]
 
 const Excel = () => {
 	const [select,setSelect] = useState(type[0].name);
+	const [name, setName] = useState("");
 
 	let formData = new FormData();
 
 
 	const handleFile = (e) => {
+		setName(e.target.files[0].name)
 
 		if(e.target && e.target.files[0]){
-			formData.append('file',e.target.files[0]);
+			if(name.includes(select)) {
+				formData.append('file',e.target.files[0]);
+			} else {
+				alert("You selected " + name + " file for " + select + " type")
+			}
+			
 		}
 	}
 
@@ -26,12 +32,18 @@ const Excel = () => {
 
 
 	const uploadFile = () => {
-		console.log(formData,select)
-		axios.post("https://jobs-finite.herokuapp.com/excelUpload",{file: formData, fileType: select})
-			.then((res) => console.log(res))
-			.catch((err) => console.log(err))
+		if(name.includes(select)) {
+			formData.append("fileType",select);
+			// console.log("format data to be sent",formData,select)
+			axios.post("https://jobs-finite.herokuapp.com/excelUpload",formData)
+				.then((res) => console.log(res))
+				.catch((err) => console.log(err))
+		} else {
+			alert("Upload proper file")
+		}
 	}
 
+	
 	return (
 		<div>
 			<div className="header-admin"> Hello Admin, Upload the excel file</div>
@@ -59,3 +71,5 @@ const Excel = () => {
 
 export default Excel;
 
+	
+	
