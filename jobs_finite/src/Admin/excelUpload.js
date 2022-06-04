@@ -33,20 +33,15 @@ const Excel = () => {
 
 
 	const uploadFile = () => {
-		if(name.includes(select)) {
-			formData.append("fileType",select);
-			// console.log("format data to be sent",formData,select)
-			axios.post("https://jobs-finite.herokuapp.com/excelUpload",formData)
-				.then((res) => console.log(res))
-				.catch((err) => console.log(err))
-		} else {
-			alert("Upload proper file")
-		}
-		formData.append("fileType",select);
-		// console.log("format data to be sent",formData,select)
-		axios.post("https://jobs-finite.herokuapp.com/excelUpload",formData)
-			.then((res) => console.log(res))
-			.catch((err) => console.log(err))
+			if(name.includes(select)) {
+				formData.append("fileType",select);
+				// console.log("format data to be sent",formData,select)
+				axios.post("https://jobs-finite.herokuapp.com/excelUpload",formData)
+					.then((res) => console.log(res))
+					.catch((err) => console.log(err))
+			} else {
+				alert("Upload proper file")
+			}
 		}
 
 
